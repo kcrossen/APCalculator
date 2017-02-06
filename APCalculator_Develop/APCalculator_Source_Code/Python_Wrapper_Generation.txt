@@ -1,0 +1,7 @@
+d:
+cd \CalculatorDevelop\APCalculator\APCalculator
+
+path C:\Program Files (x86)\MinGW-4.4.1\bin;%PATH%
+ctypesgen.py -a -l libAPCalc -o pylibAPCalc.py libAPCalc.h
+
+
