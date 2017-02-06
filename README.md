@@ -7,7 +7,7 @@ http://isthe.com/chongo/tech/comp/calc/
 
 The original Calc was modified by eliminating all of the file-based and terminal-based i/o routines. All communication with the resulting Calc library is accomplished by function calls with string arguments and string returned values.
 
-APCalc is implemented as a Qt-based user interface to the Calc library. This user interface approximates a blend of the features of the HP-42s and the HP-48, but without graphics, statistical, or CAS functionality. The current interface was developed in Qt Creator 4.0.1 "based on Qt 5.6.1 (64 bit)" and has been tested on OS-X 10.11.
+APCalc is implemented as a Qt-based user interface to the Calc library. This user interface approximates a blend of the features of the HP-42s and the HP-48, but without graphics, statistical, or CAS functionality. The current interface was developed in Qt Creator 4.0.1, based on Qt 5.6.1 (64 bit), and has been tested on OS-X 10.11.
 
 APCalc menus are File, Mode, Solve, Equation (Algebraic mode only), Unit, and Constant (more below).
 
