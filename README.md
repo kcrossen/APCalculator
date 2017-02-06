@@ -21,5 +21,5 @@ APCalc has three basic modes, RPN, Algebraic (Algebraic Interactive), Program, a
 
 <p>Features: Unit conversions, common constants, binary and hexadecimal numeric entry/display, choice of US (period) or EU (comma) radix mark, choice of angle entry (degrees or radians), choice of results display (decimal, scientific, binary, hexadecimal, or a combination of these)</p>
 
-<p>Note: The internal precision is only limited for irrational numbers, e.g. Pi, as all integers and rational numbers, e.g one third, are stored as rational numbers.</p>
+<p>Note: The internal precision is only limited for irrational numbers, e.g. Pi, as all integers and rational numbers, e.g one third, are stored as exact rational numbers (exact numerator and exact denominator).</p>
 
