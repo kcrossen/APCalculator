@@ -1,0 +1,15 @@
+Compile library:
+cd .../Documents/APCalculator_Develop/modified_calc-2.12.4.14
+make -f Makefile clobber
+make -f Makefile calc-static-only BLD_TYPE=calc-static-only
+
+
+Package app:
+localhost:APCalculator_Develop Your_Name$ cd .../Documents/APCalculator_Develop/build-APCalculator-Desktop_Qt_5_6_1_clang_64bit-Release
+localhost:build-APCalculator-Desktop_Qt_5_6_1_clang_64bit-Release Ken$ macdeployqt APCalculator.app -dmg
+
+Not sure about this one:
+Edit APCalculator.app version in Info.plist:
+In Finder, right-click APCalculator.app, select "Show Package Contents",
+Navigate to Info.plist, right-click on Info.plist, "Open with", select TextMate (or what you have),
+Edit the key value that contains "Built with qmake..." to have version number like "2017.02.05"

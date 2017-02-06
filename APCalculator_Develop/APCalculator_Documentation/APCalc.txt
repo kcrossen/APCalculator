@@ -1,0 +1,339 @@
+Arbitrary Precision Calculator (APCalc)
+based on 
+Calc - C-style arbitrary precision calculator
+by Landon Curt Noll
+http://isthe.com/chongo/tech/comp/calc/
+
+The original Calc was modified by eliminating all of the file-based and terminal-based i/o routines. All communication with the resulting Calc library is accomplished by function calls. This library was developed (along with a very primitive user interface) in Bloodshed Dev-C++ version 4.9.9.2.
+
+APCalc is implemented as a Qt-based user interface to the Calc library. This user interface approximates a blend of the features of the HP-42s and the HP-48, but without graphics or CAS functionality. The current interface was developed in Qt Creator 2.0.1 "based on Qt 4.7.0 (32 bit)".
+
+APCalc menus are File, Mode, Solve, Equation (Algebraic mode only), Unit, and Constant (more below).
+
+APCalc has three basic modes, RPN, Algebraic, and Solve.
+
+APCalc RPN Mode:
+
+In RPN mode, there are (top to bottom) a value stack display, a value entry box, and a 6-row by 7-column button grid.
+ 
+The value stack display shows 8 entries, but the actual stored value stack is effectively unlimited. Only the most recent 8 are displayed. The value entry box dynamically displays decimal numbers with the customary thousands digit grouping (similar to the HP-42s). Thousands digit grouping for decimal numbers is also applied to the value stack display.
+
+Clicking on a value in the value stack display loads that entry into the value entry box.
+
+The value stack display may also show the values of 8 memory registers, A to H. The memory registers can be loaded by STO, optionally followed by +, -, *, or /, and clicking on one of the registers. If no optional +, -, *, or / is used, the register will be loaded with either the contents of the value entry box (if any) or the value held by the bottom value stack entry. If the optional +, -, *, or / is used, the same value will be added to, subtracted from, multiplied with, or divided into the selected register and the result will be stored in the register.
+
+Similarly, RCL, optionally followed by +, -, *, or /, and clicking on a memory register, will either push the register content onto the value stack, or perform the corresponding operation on the bottom value stack entry.
+
+To view the memory registers, click STO, and click STO again to return to the value stack view.
+
+RPN mode buttons:
+In RPN mode, the SHFT button shifts to another set of functions, but only for the next use of one of the shifted buttons, after which the button set returns to the unshifted button set.
+
+With the exception of SHFT, STO, and RCL, in RPN mode, all of the buttons marked in bold text will affect the stack: by operating on one or more value stack values (e.g. sin, +, +/-, Swap), by pushing a value on the stack (e.g. Pi and e), by popping a value off the stack (e.g.Drop), or by reverting to a previous state of the stack (e.g. Last). The buttons marked in light text only affect the value entry box. Other buttons can enter text into the value entry box: Alt-2 enters '0b' (to commence binary value entry), Alt-6 enters '0x' (to commence hexadecimal value entry), and Alt-0 through Alt-5 enter 'A' through 'F' (for hexadecimal value entry). The keyboard Enter key is equivalent to the Ent button.
+
+When a button that operates on the stack is clicked, and a value is present in the value entry box, that value will typically be pushed on the stack before the operation is executed. 
+
+The value entry box supports the usual copy, cut, and paste operations, and supports the keyboard, except that only legal values may be entered. These are: binary ('0b'/'0B' followed by one or more of '0' and'1'), decimal ('-d', '-d.d', '-.d', '-dE-d', '-d.dE-d', '-.dE-d', '-di', '-d.di', '-.di', '-dE-di', '-d.dE-di', '-.dE-di', where d represents one or more decimal digits and the minus signs are optional), and hexadecimal ('0x'/'0X' followed by one or more of '0' through '9' and 'A' through 'F'). A leading zero always signifies a non-decimal base, either binary or hexadecimal, and must be followed by 'b'/'B' (binary) or 'x'/'X' (hexadecimal). Therefore, the first (non-fraction) decimal digit in a decimal value may not be '0', except when the integer part of the decimal value equals zero, for example, a zero decimal value or a leading zero followed by the decimal point.
+
+Starting with an empty value entry box, if you attempt to enter the value of i by clicking the i button, '1i' will be entered. If you attempt to enter a bare exponent by clicking the E button, '1E' will be entered. More generally, the value entry box will attempt to prevent the entry of anything but legal values as defined above.
+
+Unit Menu (unit conversions):
+The unit conversions found on the unit menu push the selected conversion factor onto the Value Stack. For example, to convert 17 inches to centimeters, type '17', select Unit, Length, inches to centimeters from the Unit menu. Now click the multiply button which leaves the converted value on the bottom of the Value Stack.
+
+Constant Menu (the values of various mathematical and physical conatants):
+Works similarly to the Unit Menu.
+
+APCalc Algebraic Mode:
+
+In Algebraic mode, there are (top to bottom) an expression/program entry box and a 6-row by 6-column button set.
+
+Albebraic mode buttons:
+The button grid can be shifted through three different button sets. In Algebraic mode, the current button set is sticky and the bottom left button identifies the topic of the button set. 
+
+
+APCalc Solve Mode:
+
+Entering data values for the Solve variables follows the same rules as entering numerical values into the RPN mode value entry box as detailed above.
+
+APCalc Menus:
+
+File
+	Open...
+	Save As...
+	----------
+	Import History...
+	Export History...
+	----------
+	Exit
+
+Mode
+	Algebraic - Forces APCalc into Algebraic mode.
+	RPN - Forces APCalc into RPN mode.
+	----------
+	Degrees - Angle values displayed and interpreted as degrees.
+	Radians - Angle values displayed and interpreted as radians.
+	----------
+	Decimal
+	Scientific
+	Decimal/Scientific
+	Decimal/Hexadecimal
+	Decimal/Binary
+	----------
+	Recall Eval
+	Recall Eval and Value
+
+Solve (forces APCalc into Solve Mode)
+	Import
+	----------
+	Finance
+		Time Value of Money
+		----------
+		Present Value		
+	Geometry
+		Side of Right Triangle
+		Area of Circle
+		Volume of Sphere
+
+Equation (Algebraic mode only)
+	Math
+		Normal Probability
+	Geometry
+		Circumference of Circle
+		Area of Circle
+		Volume of Sphere
+
+Unit (conversion factors)
+	Length
+		centimeters to inches
+		meters to feet
+		meters to yards	
+		kilometers to miles	
+		----------
+		inches to centimeters	
+		feet to meters	
+		yards to meters	
+		miles to kilometers	
+		----------
+		inches to feet	
+		inches to yards	
+		feet to miles	
+		yards to miles	
+		feet to inches	
+		yards to inches	
+		miles to feet	
+		miles to yards	
+	Area
+		sq millimeters to sq inches	
+		sq centimeters to sq inches	
+		sq centimeters to sq feet	
+		sq meters to sq feet	
+		sq meters to sq yards	
+		sq meters to acres	
+		----------
+		sq inches to sq millimeters	
+		sq inches to sq centimeters	
+		sq feet to sq centimeters	
+		sq feet to sq meters	
+		sq yards to sq meters	
+		acres to sq meters	
+		----------
+		sq inches to sq feet	
+		sq inches to sq yards	
+		sq feet to acres	
+		sq yards to acres	
+		acres to sq yards	
+		acres to sq feet	
+		sq yards to sq inches	
+		sq feet to sq inches	
+	Volume
+		cu centimeters to cu inches	
+		liters to cu feet	
+		cu meters to cu inches	
+		cu meters to cu feet	
+		cu meters to cu yards	
+		----------
+		cu inches to cu centimeters	
+		cu inches to cu meters	
+		cu feet to liters	
+		cu feet to cu meters	
+		cu yards to cu meters	
+		----------
+		cu inches to cu feet	
+		cu inches to cu yards	
+		cu feet to cu inches	
+		cu yards to cu inches	
+	Capacity
+		liters to USquart	
+		liters to USgallon	
+		cu meters to USgallon	
+		----------
+		USquart to liters	
+		USgallon to liters	
+		USgallon to cu meters	
+	Mass/Force
+		kg to pound (av)	
+		----------
+		pound (av) to kg	
+	Energy/Power
+		watts to horsepower	
+		----------
+		horsepower to watts	
+	Angle
+		arcsec to degrees	
+		arcmin to degrees	
+		grads to degrees	
+		----------
+		degrees to arcsec	
+		degrees to arcmin	
+		degrees to grads	
+	Time/Speed
+		seconds to years	
+		years to seconds	
+		----------
+		miles/hour to knots	
+		miles/hour to meters/sec	
+		meters/sec to miles/hour	
+		knots to miles/hour	
+	Temperature
+		degrees C to degrees F	
+		----------
+		degrees F to degrees C	
+
+Constant (values)
+	Physics
+		Speed of Light
+		Gravitational Constant
+		Acceleration of Gravity (m/s)
+		Acceleration of Gravity (ft/s)
+		----------
+		Charge of Electron
+		Mass of Electron
+		Mass of Proton
+		Mass of Neutron
+		----------
+		Avogadro Constant
+		Planck Constant
+	Geography
+		Radius of Earth (equat, km)
+		Radius of Earth (polar, km)
+		----------
+		Radius of Earth (equat, mi)
+		Radius of Earth (polar, mi)
+	Orders of Magnitude
+		yotta
+		zetta
+		exa
+		peta
+		tera
+		giga
+		mega
+		kilo
+		hecto
+		----------
+		centi
+		milli
+		micro
+		nano
+		pico
+		femto
+		atto
+		zepto
+		yocto
+	Data Magnitude
+		kibi
+		mebi
+		gibi
+		tebi
+		pebi
+		exbi
+		zebi
+		yobi
+		
+		
+APCalc RPN functions (where x is stack value 1 and y is stck value 2) :
+Button	Description
+abs	Absolute value. Returns |x|.
+acos	Arc cosine. Returns cos^-1 x.
+acsh	Arc hyperbolic cosine. Returns cosh^-1 x.
+Arg	Argument (the angle or phase) of a complex number
+asin	Arc sine. Returns sin^-1 x.
+asnh	Arc hyperbolic sine. Returns sinh^-1 x.
+atan	Arc tangent. Returns tan^-1 x.
+atnh	Arc hyperbolic tangent. Returns tanh^-1 x.
+bAnd	Bitwise AND. Returns x Bitwise AND y.
+bNot	Bitwise NOT. Returns 32 bit Bitwise NOT(x) equivalent to x XOR 0xFFFFFFFF.
+bOr	Bitwise OR. Returns x Bitwise OR y.
+bXor	Bitwise XOR (exclusive OR). Returns x Bitwise XOR y.
+cAbs	The Absolute value of an imaginary number. Returns sqrt(re(x)^2 + im(x)^2).
+comb	Combinations of y items taken x at a time = y! / [x!(y-x)!]
+cos	Cosine. Returns cos(x).
+cosh	Hyperbolic cosine. Returns cosh(x).
+c»r	Complex to Real. Returns x = re(x), y = im(x).
+Del	Delete the character preceeding the cursor.
+Ent	Push value in value entry box onto stack.
+e	Base of the natural logarithm.
+e^x	Natural exponential. Returns e^x.
+*E^X-1	Natural exponential for values of x which are close to zero. Returns e^x-1, which provides a much higher accuracy in the fractional part of the result.
+fact	Factorial. Returns x!.
+fp	Returns the fractional part of x.
+*GAMMA	Gamma function. Returns G(x).
+*GRAD	Select Grads angular mode.
+*HMS+	Add x and y using H.MMSSss (hours-minutes-seconds) format.
+*HMS-	Subtract x from y using H.MMSSss format.
+im	Returns imaginary part of x as real number.
+ip	Returns the integer part of x
+Last	Recall previous stack and value entry box contents.
+ln	Natural logarithm. Returns ln(x).
+*LN1+X	Natural logarithm for values close to zero. Returns ln(1 + x), which provides a much higher accuracy in the fractional part of the result.
+log	Common logarithm. Returns log10(x).
+log2	Returns log base 2 of x.
+logx	Returns log base x of y.
+nrnd	Normally (Gaussian) distributed random numbers, using the Box-Muller transformation.
+perm	Permutations of y items taken x at a time. Returns y!/(y - x)!
+Pi	Put an approximation of pi into the x-register (3.14159265359.....).
+*POLAR	Select polar coordinate mode for displaying complex numbers.
+rand	Returns a random number (0 = x < 1)
+RCL	Recall data from memory register into x. 
+RCL+	Recall data from memory register and add it to the contents of x.
+RCL-	Recall data from memory register and subtract it from the contents of x.
+RCL×	Recall data from memory register and multiply it by the contents of x.
+RCL/	Recall data from memory register and divide it into the contents of x.
+re	Returns real part of x.
+r»c	Real to Complex. Returns x + (y * i).
+*RDX,	Select a comma to be used as the radix mark (decimal point).
+*RDX.	Select a period to be used as the radix mark (decimal point).
+*RECT	Select Rectangular coordinate mode for displaying complex numbers.
+*RND	Round the number in the x-register using the current display format.
+seed	Store a seed for the random number generator.
+sign	Return 1 for x = 0, -1 for x < 0, and 0 for non-numbers. Returns the unit vector of a complex number.
+sin	Returns sin(x).
+sinh	Hyperbolic sine. Returns sinh(x).
+ST0	Store a copy of x into a memory register.
+STO+	Adds x to a memory register.
+STO-	Subtracts x from a memory register.
+ST0×	Multiplies a memory register by x. 
+ST0/	Divides a memory register by x. 
+tan	Returns tan(x).
+tanh	Returns tanh(x).
+Swap	Swaps the contents of the x- and y-registers.
+x^2	Returns x^2.
+x^-2	Returns square root of x.
+y^x	Returns y^x.
+y^-x	Returns y^-x.
+y % x	Returns the remainder for y / x.
+1/x	Returns 1/x.
+10^x	Returns 10^x.
++	Returns y + x.
+-	Returns y - x.
+×	Returns x × y.
+/	Returns y / x.
++/-	Change the sign of the number in the x-register. Alt-minus enters '-' for negative exponents.
+»deg	To degrees. Convert an angle-value from radians to degrees. Returns x×(180/p).
+*>>HMS	To hours, minutes, and seconds. Convert x from a decimal fraction to a minutes-seconds format.
+*>>HR	To hours. Converts x from a minutes-seconds format to a decimal fraction.
+*>>POL	To polar. Converts x and y to the corresponding polar coordinates r and ?. If the x-register contains a complex number, converts the two parts of the number to polar values.
+»rad	To radians. Converts a angle value in degrees to radians. Returns x×(p/180).
+*>>REC	To rectangular. Converts r (in the x-register) and ? (in the y-register) to the corresponding rectangular coordinates, x and y. If the X-register contains a complex number, converts the two parts of the number to rectangular values.
+%	Percent. Returns (x × y) / 100. (Leaves the y value in the y-register.)
+%ch	Percent change. Returns (x - y) × (100 / y).
+%t	Percent of total. Returns 100 × y / x.

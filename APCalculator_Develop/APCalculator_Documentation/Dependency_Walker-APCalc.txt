@@ -1,0 +1,10 @@
+Microsoft Windows [Version 6.1.7601]
+Copyright (c) 2009 Microsoft Corporation.  All rights reserved.
+
+C:\Users\Ken>D:
+
+D:\>cd D:\CalculatorDevelop\APCalculator\APCalculator-build-desktop-Qt_4_8_1_for_Desktop_-_MinGW__Qt_SDK__Release\release
+
+D:\CalculatorDevelop\APCalculator\APCalculator-build-desktop-Qt_4_8_1_for_Desktop_-_MinGW__Qt_SDK__Release\release>depends APCalculator.exe
+
+D:\CalculatorDevelop\APCalculator\APCalculator-build-desktop-Qt_4_8_1_for_Desktop_-_MinGW__Qt_SDK__Release\release>
