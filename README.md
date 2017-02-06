@@ -11,7 +11,7 @@ APCalc is implemented as a Qt-based user interface to the Calc library. This use
 
 APCalc menus are File, Mode, Solve, Equation (Algebraic mode only), Unit, and Constant (more below).
 
-APCalc has three basic modes, RPN, Algebraic (Algebraic Interactive), Program, and Solve. By default, an ini file named “APCalculator.ini” in the “~/Documents/APCalculator/” directory is applied to initialize APCalc modes and “built-in” function definitions. In the shortcut’s properties, you may specify another ini file after the path to the executable file.
+APCalc has four basic modes, RPN, Algebraic (Algebraic Interactive), Program, and Solve. By default, an ini file named “APCalculator.ini” in the “~/Documents/APCalculator/” directory is applied to initialize APCalc modes and “built-in” function definitions. In the shortcut’s properties, you may specify another ini file after the path to the executable file.
 
 <p>Initially set to 64 decimal digits internal precision, with 32 decimal digits displayed, this calculator can be set to any desired precision. Initial operating mode is RPN, which approximates the user interface of the HP-48/49 series calculators. Numeric display, even while entering numbers, features standard digit grouping. In RPN mode, there is essentially unlimited undo/redo of the entire stack, so that even late recognition of a mistake does not require a complete restart.</p>
 
