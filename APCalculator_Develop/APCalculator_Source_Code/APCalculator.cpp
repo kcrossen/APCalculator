@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
         APCalculator_FontSize = 9;
 
 #ifdef Q_OS_MAC
-        APCalculator_WindowHeight = 398;
+        APCalculator_WindowHeight = 408; // 398;
         APCalculator_WindowWidth = 324;
 #else
         APCalculator_WindowHeight = 398;
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
         /* Alpha row headers are wider than numeric row headers */
         ValueStack_MemoryColumnWidth = ValueStack_StackColumnWidth - 2;
 #ifdef Q_OS_MAC
-        ValueStack_Height = 194;
+        ValueStack_Height = 204; // 194;
 #else
         ValueStack_Height = 194;
 #endif
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
 
 
 #ifdef Q_OS_MAC
-        APCalculator_WindowHeight = 452 /* 454 */ ;
+        APCalculator_WindowHeight = 482; // 452; // 454;
         APCalculator_WindowWidth = 416 /* 400 */ ;
 
         ValueStack_StackColumnWidth = 396 /* 374 */ ;
@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
         /* Alpha row headers are wider than numeric row headers */
         ValueStack_MemoryColumnWidth = ValueStack_StackColumnWidth - 0 /* 2 */ ;
 #ifdef Q_OS_MAC
-        ValueStack_Height = 232 /* 214 */ ;
+        ValueStack_Height = 262; // 232; // 214;
         ValueStack_RowHeight = 23 /* 21 */ ;
 #else
         ValueStack_Height = 214 /* 214 */ ;

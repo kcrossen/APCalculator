@@ -15,7 +15,7 @@ APCalcClass::APCalcClass ( ) {
     setMinimumSize(APCalculator_WindowWidth, APCalculator_WindowHeight);
     setMaximumSize(APCalculator_WindowWidth, APCalculator_WindowHeight);
     resize(APCalculator_WindowWidth, APCalculator_WindowHeight);
-    setWindowTitle(tr("Arbitrary Precision Calculator 2017.02.05"));
+    setWindowTitle(tr("Arbitrary Precision Calculator 2022.01.05"));
 
     // Windows
     APCalc_MenuBar = new QMenuBar;
